@@ -14,7 +14,9 @@ const Navbar = () => {
         <div>
           <Link href="/auth">Auth</Link>
         </div>
-        <div className="ml-2">Payments</div>
+        <div className="ml-2">
+          <Link href="/provider">Providers</Link>
+        </div>
       </div>
     </div>
   );
