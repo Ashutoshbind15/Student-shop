@@ -4,6 +4,12 @@ const StudentSchema = new mongoose.Schema({
   name: {
     type: String,
   },
+  password: {
+    type: String,
+  },
+  role: {
+    type: String,
+  },
   contact: {
     type: Number,
   },
