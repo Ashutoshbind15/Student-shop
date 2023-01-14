@@ -1,6 +1,7 @@
 import connectDB from "../../../utils/db";
-
 import Student from "../../../models/Student";
+
+//routes for admin to view and change roles of students and vendors
 
 const handler = async (req, res) => {
   console.log("handler");
