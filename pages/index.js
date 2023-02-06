@@ -1,4 +1,7 @@
 import Image from "next/image";
+import ReviewCards from "../components/Layout/ReviewCards";
+import TypeCards from "../components/Layout/TypeCards";
+import StudentCard from "../components/Student/StudentCard";
 
 export default function Home() {
   return (
@@ -26,6 +29,41 @@ export default function Home() {
           </a>{" "}
           on Freepik
         </div>
+      </div>
+      <div className="py-12 px-6 flex items-center flex-wrap">
+        <StudentCard />
+        <StudentCard />
+      </div>
+
+      <div className="py-12 px-6 flex flex-wrap">
+        <TypeCards
+          title="Groceries"
+          desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sequi
+          quo sed sapiente"
+          className=""
+        />
+        <TypeCards
+          title="Groceries"
+          desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sequi
+          quo sed sapiente"
+          className=""
+        />
+        <TypeCards
+          title="Groceries"
+          desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sequi
+          quo sed sapiente"
+          className=""
+        />
+        <TypeCards
+          title="Groceries"
+          desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni sequi
+          quo sed sapiente"
+          className=""
+        />
+      </div>
+
+      <div className="my-12">
+        <ReviewCards />
       </div>
     </div>
   );
