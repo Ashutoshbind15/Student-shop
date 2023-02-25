@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { CartSchema } from "./Cart";
 import Product from "./Product";
 
 const StudentSchema = new mongoose.Schema({
@@ -25,8 +26,7 @@ const StudentSchema = new mongoose.Schema({
   },
   cart: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Product",
+      type: CartSchema,
     },
   ],
 });

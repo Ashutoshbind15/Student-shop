@@ -6,7 +6,8 @@ import Button from "../UI/Button";
 
 const ProductItem = ({ title, price, desc, urls, id, remove = false }) => {
   const { cart } = useCart();
-  const { postCartMutation, editCartMutation } = useCartMutations();
+  const { postCartMutation, editCartMutation, deleteCartMutation } =
+    useCartMutations();
 
   const addToCartHandler = () => {
     postCartMutation.mutate({
@@ -15,10 +16,10 @@ const ProductItem = ({ title, price, desc, urls, id, remove = false }) => {
     console.log(cart);
   };
   const removeHandler = () => {
-    // postCartMutation.mutate({
-    //   productId: id,
-    // });
-    // console.log(cart);
+    deleteCartMutation.mutate({
+      productId: id,
+    });
+    console.log(cart);
   };
 
   return (

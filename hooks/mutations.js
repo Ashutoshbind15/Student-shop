@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { editCart, editProfile, postCart } from "../utils/api";
+import { deleteCart, editCart, editProfile, postCart } from "../utils/api";
 
 export const useUserMutations = () => {
   const queryClient = useQueryClient();
@@ -33,8 +33,16 @@ export const useCartMutations = () => {
     },
   });
 
+  const deleteMutation = useMutation({
+    mutationFn: deleteCart,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
+
   return {
     editCartMutation: editMutation,
     postCartMutation: postMutation,
+    deleteCartMutation: deleteMutation,
   };
 };

@@ -4,7 +4,12 @@ import { useCart } from "../hooks/queries";
 
 const Cart = () => {
   const { cart } = useCart();
-  return <ProductList products={cart} remove={true}></ProductList>;
+  console.log(cart);
+  const mapper = cart.map((el) => ({
+    amount: el.amount,
+    ...el.product,
+  }));
+  return <ProductList products={mapper} remove={true}></ProductList>;
 };
 
 export default Cart;

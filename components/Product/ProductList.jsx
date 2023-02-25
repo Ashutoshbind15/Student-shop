@@ -4,7 +4,7 @@ import ProductItem from "./ProductItem";
 const ProductList = ({ products, remove }) => {
   return (
     <div className="flex flex-wrap">
-      {products.map((product) => (
+      {products?.map((product) => (
         <ProductItem
           key={product._id}
           desc={product.description}
@@ -13,6 +13,7 @@ const ProductList = ({ products, remove }) => {
           urls={product.urls}
           id={product._id}
           remove={remove}
+          amount={product.amount}
         />
       ))}
     </div>
