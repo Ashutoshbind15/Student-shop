@@ -12,7 +12,7 @@ const ReviewCards = () => {
       </div>
 
       <div className="flex-1 flex items-center justify-center">
-        <Image src="/images/a1.jpg" width={400} height={100} />
+        <Image src="/images/a1.jpg" width={400} height={100} alt={"rcard"} />
       </div>
     </div>
   );

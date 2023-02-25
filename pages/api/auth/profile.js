@@ -12,11 +12,7 @@ const handler = async (req, res) => {
   } else {
     const { id } = sess.user;
     if (req.method == "GET") {
-      const student = await Student.findById(id, {
-        _id: 0,
-        password: 0,
-        role: 0,
-      });
+      const student = await Student.findById(id).select("-password -_id -role");
       res.status(200).json(student);
     } else if (req.method == "PUT") {
       await Student.findByIdAndUpdate(id, req.body, { new: true });

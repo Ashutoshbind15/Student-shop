@@ -14,6 +14,7 @@ const Providers = ({ providers }) => {
             name={el.name}
             location={el.location}
             type={el.type}
+            id={el._id}
           />
         ))}
       </div>

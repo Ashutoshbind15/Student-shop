@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Product from "./Product";
 
 const StudentSchema = new mongoose.Schema({
   name: {
@@ -22,9 +23,15 @@ const StudentSchema = new mongoose.Schema({
   urls: {
     type: [String],
   },
+  cart: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 
 const Student =
-  mongoose.models.Student || mongoose.model("Student", StudentSchema);
+  mongoose.models?.Student || mongoose.model("Student", StudentSchema);
 
 export default Student;

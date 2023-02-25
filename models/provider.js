@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Product from "./Product";
 
 const ProviderSchema = new mongoose.Schema({
   name: {
@@ -13,13 +14,15 @@ const ProviderSchema = new mongoose.Schema({
   urls: {
     type: [String],
   },
-  products: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Product",
-  },
+  products: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+    },
+  ],
 });
 
 const Provider =
-  mongoose.models.Provider || mongoose.model("Provider", ProviderSchema);
+  mongoose.models?.Provider || mongoose.model("Provider", ProviderSchema);
 
 export default Provider;

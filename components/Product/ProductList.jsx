@@ -1,15 +1,19 @@
 import React from "react";
+import ProductItem from "./ProductItem";
 
-import Card from "../Layout/Card";
-
-const ProductList = ({ products }) => {
+const ProductList = ({ products, remove }) => {
   return (
-    <div>
+    <div className="flex flex-wrap">
       {products.map((product) => (
-        <Card key={product._id}>
-          {product.title}
-          {product.price}
-        </Card>
+        <ProductItem
+          key={product._id}
+          desc={product.description}
+          price={product.price}
+          title={product.title}
+          urls={product.urls}
+          id={product._id}
+          remove={remove}
+        />
       ))}
     </div>
   );

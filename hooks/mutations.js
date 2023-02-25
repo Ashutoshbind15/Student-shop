@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { editProfile } from "../utils/api";
+import { editCart, editProfile, postCart } from "../utils/api";
 
 export const useUserMutations = () => {
   const queryClient = useQueryClient();
@@ -13,5 +13,28 @@ export const useUserMutations = () => {
 
   return {
     editMutation,
+  };
+};
+
+export const useCartMutations = () => {
+  const queryClient = useQueryClient();
+
+  const editMutation = useMutation({
+    mutationFn: editCart,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
+
+  const postMutation = useMutation({
+    mutationFn: postCart,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
+
+  return {
+    editCartMutation: editMutation,
+    postCartMutation: postMutation,
   };
 };

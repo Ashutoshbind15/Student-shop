@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
-import { getProfile } from "../utils/api";
+import { getCart, getProfile } from "../utils/api";
 
 export const useUser = () => {
   const { data: session } = useSession();
@@ -21,5 +21,27 @@ export const useUser = () => {
     err: error,
     isLoading,
     isError,
+  };
+};
+
+export const useCart = () => {
+  const { data: session } = useSession();
+
+  const {
+    data: cart,
+    isError,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["cart"],
+    queryFn: getCart,
+    enabled: session ? true : false,
+  });
+
+  return {
+    cart,
+    isError,
+    isLoading,
+    error,
   };
 };
