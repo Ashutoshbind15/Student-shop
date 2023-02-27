@@ -1,15 +1,15 @@
 import React from "react";
-import ProductList from "../components/Product/ProductList";
+import CartList from "../components/Product/CartList";
 import { useCart } from "../hooks/queries";
 
 const Cart = () => {
   const { cart } = useCart();
-  console.log(cart);
-  const mapper = cart.map((el) => ({
+
+  const mapper = cart?.map((el) => ({
     amount: el.amount,
     ...el.product,
   }));
-  return <ProductList products={mapper} remove={true}></ProductList>;
+  return <CartList products={mapper} remove={true}></CartList>;
 };
 
 export default Cart;

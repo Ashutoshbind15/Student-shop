@@ -3,7 +3,6 @@ import connectDB from "../../utils/db";
 import bcrypt from "bcryptjs";
 
 const handler = async (req, res) => {
-  console.log("handler");
   connectDB();
 
   if (req.method === "POST") {

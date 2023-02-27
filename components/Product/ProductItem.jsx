@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { useCartMutations } from "../../hooks/mutations";
 import { useCart } from "../../hooks/queries";
@@ -9,17 +10,19 @@ const ProductItem = ({ title, price, desc, urls, id, remove = false }) => {
   const { postCartMutation, editCartMutation, deleteCartMutation } =
     useCartMutations();
 
+  let isPart = cart?.filter((el) => el.product._id === id).length;
+
   const addToCartHandler = () => {
     postCartMutation.mutate({
       productId: id,
     });
     console.log(cart);
   };
+
   const removeHandler = () => {
     deleteCartMutation.mutate({
       productId: id,
     });
-    console.log(cart);
   };
 
   return (
@@ -27,14 +30,20 @@ const ProductItem = ({ title, price, desc, urls, id, remove = false }) => {
       <p className="my-2 font-semibold font-mono text-xl">{title}</p>
       <p className="my-2 font-semibold font-mono">{price}</p>
       <p className="my-2 font-semibold font-mono">{desc}</p>
-      {!remove ? (
+      {!isPart ? (
         <Button
           className="my-4 bg-blue-700 text-white z-20"
           onClick={addToCartHandler}
         >
           Add to cart!
         </Button>
-      ) : (
+      ) : remove ? null : (
+        <Button className="my-4 bg-blue-700 text-white z-20">
+          <Link href="/cart">Go to Cart</Link>
+        </Button>
+      )}
+
+      {remove && (
         <Button
           className="my-4 bg-blue-700 text-white z-20"
           onClick={removeHandler}

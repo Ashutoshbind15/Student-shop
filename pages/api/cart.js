@@ -4,7 +4,7 @@ import connectDB from "../../utils/db";
 import { authOptions } from "./auth/[...nextauth]";
 
 const handler = async (req, res) => {
-  connectDB();
+  await connectDB();
   const sess = await unstable_getServerSession(req, res, authOptions);
 
   if (!sess) {
@@ -24,9 +24,17 @@ const handler = async (req, res) => {
     if (req.method == "GET") {
       return res.status(200).json(user.cart);
     } else if (req.method == "PUT") {
-      user.cart = user.cart.filter((el) => el !== id);
+      const { productId, amount } = req.body;
+
+      let idx = 0;
+      for (let el of user.cart) {
+        if (JSON.parse(JSON.stringify(el.product._id)) === productId) break;
+        idx++;
+      }
+
+      user.cart[idx].amount = amount;
       await user.save();
-      return;
+      return res.status(200).json({ msg: "success" });
     } else if (req.method == "POST") {
       const { productId } = req.body;
       user.cart.push({ product: productId, amount: 1 });

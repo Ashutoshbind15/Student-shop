@@ -7,7 +7,6 @@ const Navbar = () => {
   const { data: session } = useSession();
   const { profile } = useUser();
   const { cart } = useCart();
-  console.log(cart);
 
   return (
     <div className="bg-blue-700 text-white font-semibold flex items-center justify-between px-4 py-4 sticky top-0 z-20">

@@ -14,8 +14,8 @@ export const getCart = async () => {
   return data;
 };
 
-export const editCart = async (id) => {
-  await axios.put("/api/cart", id);
+export const editCart = async (payload) => {
+  await axios.put("/api/cart", payload);
 };
 
 export const postCart = async (payload) => {
