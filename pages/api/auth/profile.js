@@ -4,7 +4,7 @@ import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./[...nextauth]";
 
 const handler = async (req, res) => {
-  connectDB();
+  await connectDB();
   const sess = await unstable_getServerSession(req, res, authOptions);
 
   if (!sess) {

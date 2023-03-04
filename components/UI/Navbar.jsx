@@ -5,8 +5,8 @@ import { useCart, useUser } from "../../hooks/queries";
 
 const Navbar = () => {
   const { data: session } = useSession();
-  const { profile } = useUser();
-  const { cart } = useCart();
+  const { profile, isLoading: profileIsLooading } = useUser();
+  const { cart, isLoading: CartIsLoading } = useCart();
 
   return (
     <div className="bg-blue-700 text-white font-semibold flex items-center justify-between px-4 py-4 sticky top-0 z-20">
@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link href="/auth">SignIn</Link>
           </div>
         )}
-        {profile && (
+        {profile && !profileIsLooading && (
           <div>
             <Link href="/auth/profile">{profile?.name}</Link>
           </div>
@@ -35,7 +35,7 @@ const Navbar = () => {
           <Link href="/products">Products</Link>
         </div>
         <div className="ml-2">
-          <Link href="/cart">{`Cart ${cart?.length}`}</Link>
+          {!CartIsLoading && <Link href="/cart">{`Cart ${cart?.length}`}</Link>}
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import Provider from "../../../models/provider";
 
 const handler = async (req, res) => {
   console.log("handler");
-  connectDB();
+  await connectDB();
 
   if (req.method === "POST") {
     const { name, type, location } = req.body;

@@ -5,7 +5,7 @@ import Student from "../../../models/Student";
 
 const handler = async (req, res) => {
   console.log("handler");
-  connectDB();
+  await connectDB();
 
   if (req.method === "POST") {
     const { name, location, contact, email } = req.body;

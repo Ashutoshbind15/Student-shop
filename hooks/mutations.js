@@ -22,12 +22,7 @@ export const useCartMutations = () => {
   const editMutation = useMutation({
     mutationFn: editCart,
 
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: ["cart"] });
-    // },
-
     onMutate: async (newItem) => {
-      console.log("hi");
       const { productId, amount } = newItem;
       await queryClient.cancelQueries(["cart"]);
       const prevData = queryClient.getQueryData(["cart"]);
@@ -63,10 +58,6 @@ export const useCartMutations = () => {
   const postMutation = useMutation({
     mutationFn: postCart,
 
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: ["cart"] });
-    // },
-
     onMutate: async (newItem) => {
       await queryClient.cancelQueries(["cart"]);
       const prevData = queryClient.getQueryData(["cart"]);
@@ -90,10 +81,6 @@ export const useCartMutations = () => {
 
   const deleteMutation = useMutation({
     mutationFn: deleteCart,
-
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({ queryKey: ["cart"] });
-    // },
 
     onMutate: async (newItem) => {
       await queryClient.cancelQueries(["cart"]);
