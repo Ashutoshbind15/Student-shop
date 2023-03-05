@@ -5,7 +5,7 @@ import Card from "./Card";
 
 const TypeCards = ({ title, desc, className }) => {
   return (
-    <Card className={`text-center py-16 mx-4 ${className}`}>
+    <Card className={`text-center py-16 mx-4 ${className} text-black`}>
       {/* <CardNavHeader /> */}
       <p className="font-semibold text-lg mb-4">{title}</p>
       <p className="mb-4">{desc}</p>

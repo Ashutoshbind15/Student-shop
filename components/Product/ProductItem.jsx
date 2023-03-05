@@ -26,7 +26,7 @@ const ProductItem = ({ title, price, desc, urls, id, remove = false }) => {
   };
 
   return (
-    <Card className="text-center py-12 px-4 w-1/2 my-8">
+    <Card className="text-center py-12 px-4 w-1/2 my-8 text-black">
       <p className="my-2 font-semibold font-mono text-xl">{title}</p>
       <p className="my-2 font-semibold font-mono">{price}</p>
       <p className="my-2 font-semibold font-mono">{desc}</p>

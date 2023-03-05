@@ -18,7 +18,7 @@ const ProfilePage = () => {
     return <p>Loading...</p>;
   } else {
     return (
-      <div className="py-6 px-20 flex flex-col items-center">
+      <div className="py-6 px-20 flex flex-col items-center text-black">
         <div className="flex justify-between items-center">
           <Image width={400} height={400} src="/images/a1.jpg" alt="avatar" />
           <div className="flex flex-col">
@@ -56,14 +56,30 @@ const ProfilePage = () => {
             >
               <Form className="flex flex-col">
                 <label>Name</label>
-                <Field name="name" type="text" />
+                <Field
+                  name="name"
+                  type="text"
+                  className="bg-slate-500 rounded-md py-2 px-4"
+                />
                 <label>Contact</label>
-                <Field name="contact" type="number" />
+                <Field
+                  name="contact"
+                  type="number"
+                  className="bg-slate-500 rounded-md py-2 px-4"
+                />
                 <label>Email</label>
-                <Field name="email" type="text" />
+                <Field
+                  name="email"
+                  type="text"
+                  className="bg-slate-500 rounded-md py-2 px-4"
+                />
 
                 <label>Location</label>
-                <Field name="location" type="text" />
+                <Field
+                  name="location"
+                  type="text"
+                  className="bg-slate-500 rounded-md py-2 px-4"
+                />
                 <Button type="submit">Edit</Button>
               </Form>
             </Formik>

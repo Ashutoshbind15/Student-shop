@@ -37,8 +37,6 @@ export const useCartMutations = () => {
 
         const newArr = structuredClone(old);
         newArr[idx].amount = amount;
-        console.log(newArr[idx]);
-        console.log("hi", old, newArr);
 
         return newArr;
       });

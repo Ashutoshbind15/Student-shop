@@ -6,7 +6,7 @@ import StudentCard from "../components/Student/StudentCard";
 export default function Home() {
   return (
     <div>
-      <div className="mx-12 my-20 flex items-center justify-between">
+      <div className="mx-12 my-20 flex items-center justify-between text-black">
         <div className="text-2xl font-bold">
           Welcome to the student Shop App!
           <br />

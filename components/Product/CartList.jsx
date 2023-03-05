@@ -3,7 +3,7 @@ import CartItem from "./CartItem";
 
 const CartList = ({ products, remove }) => {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap text-black">
       {products?.map((product) => (
         <CartItem
           key={product._id}
