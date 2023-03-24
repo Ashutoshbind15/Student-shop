@@ -3,8 +3,7 @@ import connectDB from "../../utils/db";
 import bcrypt from "bcryptjs";
 
 const handler = async (req, res) => {
-  console.log("handler");
-  connectDB();
+  await connectDB();
 
   if (req.method === "POST") {
     const { name, email, contact, location, password } = req.body;

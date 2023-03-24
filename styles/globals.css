@@ -10,6 +10,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --tert2: #1c2624;
+  --tert3: #161925;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -17,4 +22,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.t2 {
+  background-color: var(--tert2);
+  color: white;
+}
+
+.t3 {
+  background-color: var(--tert3);
+  color: white;
 }

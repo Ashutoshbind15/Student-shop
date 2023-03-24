@@ -1,11 +1,11 @@
 import React from "react";
-import ProductItem from "./ProductItem";
+import CartItem from "./CartItem";
 
-const ProductList = ({ products, remove }) => {
+const CartList = ({ products, remove }) => {
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap text-black">
       {products?.map((product) => (
-        <ProductItem
+        <CartItem
           key={product._id}
           desc={product.description}
           price={product.price}
@@ -20,4 +20,4 @@ const ProductList = ({ products, remove }) => {
   );
 };
 
-export default ProductList;
+export default CartList;
