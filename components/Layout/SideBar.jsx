@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import SidebarItems from "./SidebarItems";
 
-const SideBar = ({ role }) => {
-  const [selected, setSelected] = useState("Products");
-
+const SideBar = ({ role, selected, setSelected }) => {
   if (role === "admin") {
     return (
       <div className="flex flex-col justify-start min-h-screen shadow-2xl pt-10 items-center font-bold text-xl">
