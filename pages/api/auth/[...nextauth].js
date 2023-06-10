@@ -32,7 +32,6 @@ export const authOptions = {
 
         return {
           id: student._id,
-          role: student.role,
         };
       },
     }),
